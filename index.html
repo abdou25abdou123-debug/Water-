@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Water Is Essential For Life</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      position: relative;
+      overflow-x: hidden;
+      background: #f4f9ff;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    header {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      animation: floatTitle 3s ease-in-out infinite;
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      max-width: 750px;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2563eb;
+      margin: 0 14px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #0ea5e9;
+    }
+
+    .water-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .fact-card {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: 0.3s;
+      animation: slideUp 0.8s ease;
+    }
+
+    .fact-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    .fact-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+
+    .wave-line {
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, #0ea5e9, #2563eb, #0ea5e9);
+      background-size: 200% 100%;
+      border-radius: 999px;
+      animation: waveMove 4s linear infinite;
+      margin: 30px 0;
+    }
+
+    .bubbles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -120px;
+      width: 40px;
+      height: 40px;
+      background: rgba(14,165,233,0.12);
+      border-radius: 50%;
+      animation: rise 18s infinite linear;
+      backdrop-filter: blur(2px);
+    }
+
+    .bubble:nth-child(1) { left: 8%; animation-duration: 14s; width: 30px; height: 30px; }
+    .bubble:nth-child(2) { left: 20%; animation-duration: 20s; width: 50px; height: 50px; }
+    .bubble:nth-child(3) { left: 35%; animation-duration: 16s; }
+    .bubble:nth-child(4) { left: 50%; animation-duration: 22s; width: 60px; height: 60px; }
+    .bubble:nth-child(5) { left: 65%; animation-duration: 18s; }
+    .bubble:nth-child(6) { left: 78%; animation-duration: 24s; width: 35px; height: 35px; }
+    .bubble:nth-child(7) { left: 90%; animation-duration: 17s; }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    section {
+      background: white;
+      margin-bottom: 30px;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      animation: slideUp 0.8s ease;
+    }
+
+    h2 {
+      color: #2563eb;
+      margin-bottom: 18px;
+      font-size: 1.8rem;
+    }
+
+    .section-img {
+      width: 100%;
+      border-radius: 14px;
+      margin: 20px 0;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatTitle {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes waveMove {
+      from { background-position: 0% 50%; }
+      to { background-position: 200% 50%; }
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bubbles">
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+</div>
+
+<header>
+  <h1>Save Water, Save Life</h1>
+  <p>
+    Water is the most essential component in the ecosystem. No known life can survive without it.
+  </p>
+</header>
+
+<nav>
+  <a href="#intro">Why Water Matters</a>
+  <a href="#cells">Daily Saving Habits</a>
+  <a href="#bio">Smart Water Use</a>
+  <a href="#temp">Protect Nature</a>
+  <a href="#food">Future Generations</a>
+  <a href="#end">Conclusion</a>
+</nav>
+
+<div class="container">
+
+  <div class="water-facts">
+    <div class="fact-card">
+      <div class="fact-number">71%</div>
+      <p>of Earth is covered by water</p>
+    </div>
+    <div class="fact-card">
+      <div class="fact-number">60%</div>
+      <p>of the human body is made of water</p>
+    </div>
+    <div class="fact-card">
+      <div class="fact-number">97%</div>
+      <p>of Earth's water is salt water</p>
+    </div>
+    <div class="fact-card">
+      <div class="fact-number">3%</div>
+      <p>is fresh water available for life</p>
+    </div>
+  </div>
+
+  <div class="wave-line"></div>
+
+  <section id="intro">
+    <h2>Introduction</h2>
+    <img class="section-img" src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=1200&q=80" alt="Water Nature">
+    <p>
+      Water is the most essential component in the ecosystem. Life can survive in extreme temperatures,
+      deep underground, or even without oxygen—but no known life can survive without water.
+    </p>
+  </section>
+
+  <section id="cells">
+    <h2>Daily Water Saving Habits</h2>
+    <img class="section-img" src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=1200&q=80" alt="Cells Biology">
+    <p>
+      Water exists inside all living organisms' cells. Cytoplasm is mostly made of water and helps maintain
+      cell volume and <span class="highlight">turgor pressure</span>.
+    </p>
+    <p>
+      Simple habits like turning off the tap while brushing your teeth and fixing leaking faucets can save hundreds of liters every month.
+    </p>
+  </section>
+
+  <section id="bio">
+    <h2>Smart Water Use at Home</h2>
+    <img class="section-img" src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80" alt="Plant Photosynthesis">
+    <p>
+      Water directly participates in many important biological processes such as
+      <span class="highlight">photosynthesis</span> and digestion.
+    </p>
+    <p>
+      Using a bucket instead of a long shower, reusing water for plants, and avoiding unnecessary waste helps preserve clean water for everyone.
+    </p>
+  </section>
+
+  <section id="temp">
+    <h2>Protecting Nature and Rivers</h2>
+    <img class="section-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Climate Water">
+    <p>
+      Water has a high specific heat capacity, meaning it absorbs a lot of heat before its temperature rises.
+    </p>
+    <p>
+      Keeping rivers, lakes, and beaches clean protects ecosystems and ensures safe water for animals, plants, and people.
+    </p>
+  </section>
+
+  <section id="food">
+    <h2>Saving Water for Future Generations</h2>
+    <img class="section-img" src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1200&q=80" alt="Apple Tree">
+    <p>
+      Plants cannot make food without water, meaning every food chain depends on it.
+    </p>
+    <p>
+      If we waste water today, future generations may face serious shortages. Responsible use today means a safer tomorrow for everyone.
+    </p>
+  </section>
+
+  <section id="end">
+    <h2>Our Responsibility</h2>
+    <p>
+      <span class="highlight">Saving Water means Saving Life.</span>
+    </p>
+    <p>
+      Water is essential for all living things. Protecting water resources means protecting life on Earth.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <p>School Project | Why Water Is Essential For Life</p>
+</footer>
+
+</body>
+</html>
