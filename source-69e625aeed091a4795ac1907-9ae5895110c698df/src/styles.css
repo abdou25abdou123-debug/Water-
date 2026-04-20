@@ -1,0 +1,185 @@
+@import "tailwindcss" source("../");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+
+:root {
+  --ocean-deep: #050f1a;
+  --ocean-mid: #081c2e;
+  --ocean-surface: #0d2b42;
+  --ocean-light: #133450;
+  --teal-bright: #2dd4bf;
+  --teal-glow: #5eead4;
+  --sky-accent: #38bdf8;
+  --sand: #f0e8d8;
+  --cream: #faf7f2;
+  --text-primary: #e8f4f8;
+  --text-muted: #7fb3c8;
+  --coral: #e07a5f;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--ocean-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Water ripple animation */
+@keyframes ripple {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.4; }
+}
+
+@keyframes wave-sway {
+  0%, 100% { d: path("M0,40 C150,70 350,10 500,40 C650,70 850,10 1000,40 L1000,100 L0,100 Z"); }
+  50% { d: path("M0,40 C150,10 350,70 500,40 C650,10 850,70 1000,40 L1000,100 L0,100 Z"); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease forwards;
+}
+
+.animate-fade-up-delay-1 {
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.15s forwards;
+}
+
+.animate-fade-up-delay-2 {
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.3s forwards;
+}
+
+.animate-fade-up-delay-3 {
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.45s forwards;
+}
+
+.animate-fade-up-delay-4 {
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.6s forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.water-bg {
+  background: radial-gradient(ellipse 120% 80% at 50% 0%, #0d3a5c 0%, var(--ocean-deep) 70%);
+}
+
+.teal-glow-text {
+  color: var(--teal-bright);
+  text-shadow: 0 0 40px rgba(45, 212, 191, 0.35);
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--teal-glow) 0%, var(--sky-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tip-card {
+  background: linear-gradient(135deg, var(--ocean-surface) 0%, var(--ocean-light) 100%);
+  border: 1px solid rgba(45, 212, 191, 0.12);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 20px 60px rgba(45, 212, 191, 0.08);
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.divider-wave {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-bright);
+}
+
+.fact-card {
+  position: relative;
+  padding: 2rem;
+  background: var(--ocean-surface);
+  border-left: 3px solid var(--teal-bright);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+
+.progress-bar {
+  height: 4px;
+  background: var(--ocean-light);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal-bright), var(--sky-accent));
+  border-radius: 2px;
+  transition: width 1.5s ease;
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
